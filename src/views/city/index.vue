@@ -1,5 +1,5 @@
 <template>
   <div>
-    <router-view></router-view>
+    <h1>城市选择页面</h1>
   </div>
 </template>

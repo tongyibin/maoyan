@@ -1,0 +1,13 @@
+//公用的样式块
+.border-top{
+  position: relative;
+  &::before{
+    width: 100%;
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 1px;
+    background: #ededed;
+    transform: scaleY(0.5)
+  }
+}
