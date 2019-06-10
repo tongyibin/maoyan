@@ -1,3 +1,3 @@
 <template>
-  <div>猫眼</div>
+  <router-view></router-view>
 </template>
