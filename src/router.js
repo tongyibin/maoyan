@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-
 Vue.use(Router)
 
 export default new Router({
@@ -11,9 +10,9 @@ export default new Router({
       component: () => import('./views/index/index.vue'),
       children: [
         {
-          path: 'movie',
-          name: 'movie',
-          component: () => import('./views/index/movie.vue')
+          path: 'film',
+          name: 'film',
+          component: () => import('./views/index/film')
         },
         {
           path: 'cinema',
@@ -21,15 +20,20 @@ export default new Router({
           component: () => import('./views/index/cinema.vue')
         },
         {
+          path: 'center',
+          name: 'center',
+          component: () => import('./views/index/center.vue')
+        },
+        {
           path: '',
-          redirect: '/movie'
+          redirect: '/film'
         }
       ]
     },
     {
       path: '/city',
       name: 'city',
-      component: () => import('./views/City/index.vue')
+      component: () => import('./views/city/index.vue')
     }
   ]
 })

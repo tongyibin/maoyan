@@ -1,5 +1,5 @@
 <template>
   <div>
-    影院页面
+    <h1>影院</h1>
   </div>
 </template>

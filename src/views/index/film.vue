@@ -1,5 +1,5 @@
 <template>
   <div>
-    电影页面
+    <h1>电影</h1>
   </div>
 </template>
