@@ -1,5 +1,5 @@
 <template>
   <div>
-    <router-view></router-view>
+    <h1>影院</h1>
   </div>
 </template>
