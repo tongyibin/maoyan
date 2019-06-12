@@ -5,8 +5,6 @@ export default {
   state: {
     user: '',
     psd:'',
-    log:'',
-    code:''
   },
   mutations: {
     // username

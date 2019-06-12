@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <router-view></router-view>
-    <tabbar :tabs="tabs"></tabbar>
+  <div class="home">
+    <router-view class="list"></router-view>
+    <tabbar :tabs="tabs" class="tabs"></tabbar>
   </div>
 </template>
 <script>
@@ -21,3 +21,24 @@ export default {
   }
 }
 </script>
+<style lang="less" scoped>
+html,body{
+  height: 100%;
+}
+.home{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .tabs{
+    height: 50px;
+    flex-shrink: 0;
+  }
+  .list{
+    flex: 1;
+    overflow-y: auto;
+
+  }
+}
+
+</style>
+
