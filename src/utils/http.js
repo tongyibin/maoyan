@@ -3,7 +3,7 @@ import axios from 'axios'
 // 生成一个axios实例
 const http = axios.create()
 // 3.设置http的默认选项,上线和开发的不同网址
-http.defaults.baseURL = process.env.NODE_ENV === 'production' ? 'http://m.maoyan.com/ajax/movieOnInfoList?token=' : 'http://m.maoyan.com/ajax/movieOnInfoList?token=' // 基准URL地址
+http.defaults.baseURL = process.env.NODE_ENV === 'production' ? 'http://m.maoyan.com/' : 'http://m.maoyan.com/' // 基准URL地址
 http.defaults.timeout = 10000 // 设置请求超时时间
 // 4.做请求的拦截
 // 5.做响应的拦截
