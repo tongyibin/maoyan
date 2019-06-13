@@ -13,9 +13,9 @@
 <script>
 
 export default {
-  name:'tabbar',
-  props:{
-    tabs:Array
+  name: 'tabbar',
+  props: {
+    tabs: Array
   }
 }
 </script>
@@ -56,4 +56,3 @@ export default {
     }
   }
 </style>
-
