@@ -36,7 +36,7 @@
     </div>
     <div class="cinema-d">
       <!-- 城市影院列表 -->
-      <cinemalist :list="information" :lists="cinemslist" id="cinemalist"/>
+      <cinemalist :list="information" :lists="cinemslist" />
     </div>
   </div>
 </template>
@@ -60,19 +60,15 @@ export default {
     ...mapActions("cinema", ["getcinema"]),
     //滚动条滚动
     // onscroll() {
-
-    //     // window.pageYOffset ||
-    //     // document.documentElement.scrollTop ||
-    //     // document.body.scrollTop;
-    //   let scrolltop=document.documentElement.scrollTop
-    //   console.log(scrolltop);
+      // let scrolltop=document.getElementsByClassName('cinema-d')[0].scrollTop
+      // console.log(scrolltop)
     // }
   },
   created() {
     this.getcinema();
     // window.addEventListener("scroll", this.onscroll, true);
   }
-};
+}
 </script>
 
 
