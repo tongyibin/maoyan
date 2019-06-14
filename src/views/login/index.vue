@@ -14,7 +14,7 @@
               <van-button size="large" class="btn" @click="btn"  :disabled="isok">登录</van-button>
               <div>
                 <div class="bottom">
-                  <a href="#">立即注册</a>
+                   <router-link to="/register">立即注册</router-link>
                   <a href="#">找回密码</a>
                 </div>
                 <div class="phone">
@@ -35,7 +35,7 @@
               <van-button size="large" class="btn">登录</van-button>
               <div>
                 <div class="bottom">
-                  <a href="#">立即注册</a>
+                  <router-link to="/register">立即注册</router-link>
                   <a href="#">找回密码</a>
                 </div>
                 <div class="phone">
