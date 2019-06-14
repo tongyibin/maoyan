@@ -36,7 +36,7 @@
     </div>
     <div class="cinema-d">
       <!-- 城市影院列表 -->
-      <cinemalist :list="information" :lists="cinemslist" />
+      <cinemalist :list="information" :lists="cinemslist" class="cinema-l"/>
     </div>
   </div>
 </template>
@@ -47,26 +47,37 @@ export default {
   name: "cinema",
   data() {
     return {
-      information: ""
+      information: "",
     };
   },
   components: {
     cinemalist
   },
   computed: {
-    ...mapState("cinema", ["cinemslist"])
+    ...mapState("cinema", ["cinemslist","loading"])
   },
   methods: {
     ...mapActions("cinema", ["getcinema"]),
     //滚动条滚动
-    // onscroll() {
-      // let scrolltop=document.getElementsByClassName('cinema-d')[0].scrollTop
-      // console.log(scrolltop)
-    // }
+    onscroll() {
+      //滚动条距离顶部的高度
+      let scrolltop=document.getElementsByClassName('cinema-d')[0].scrollTop
+      //页面的高度
+      let scrollheight=document.getElementsByClassName('cinema-l')[0].scrollHeight;
+      //可视区域的高度
+      let clientheight=document.getElementsByClassName('cinema-d')[0].clientHeight
+
+      if((scrollheight-scrolltop-clientheight)<80){
+        if(!this.loading){
+          this.getcinema(true)
+        }
+
+      }
+    }
   },
   created() {
     this.getcinema();
-    // window.addEventListener("scroll", this.onscroll, true);
+    window.addEventListener("scroll", this.onscroll, true);
   }
 }
 </script>

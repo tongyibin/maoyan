@@ -1,6 +1,7 @@
 // http://m.maoyan.com/dianying/cities.json
 //这是城市相关的仓库
-import http from "@/utils/http.js"
+import Axios from "axios";
+// import http from "@/utils/http.js"
 export default {
   namespaced: true,
   state: {
@@ -13,10 +14,9 @@ export default {
   },
   actions: {
     getcitylist({ commit }) {
-      http.get('http://localhost:8080/dianying/cities.json')
+      Axios.get('/maoyan/dianying/cities.json')
         .then(res => {
-          console.log(res.cts.slice(0,7))
-          commit('setcitylist', res.cts)
+          commit('setcitylist', res.data.cts)
         })
     }
   },

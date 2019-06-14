@@ -47,7 +47,7 @@
       <ul>
         <li class="city-a"
         v-for="py in newcitylist"
-        :key="py.py"
+        :key="py.py" @click="fn1"
         >
         {{py.py}}
         </li>
@@ -117,7 +117,8 @@
     font-size: 12px;
   }
   .city-a{
-    width: 15px;
+    width: 20px;
+    background: #000;
     margin-top: 10px;
     margin-left: 15px;
   }
@@ -133,7 +134,10 @@ export default {
     ...mapState('city',['citylist'])
   },
   methods:{
-    ...mapActions('city',['getcitylist'])
+    ...mapActions('city',['getcitylist']),
+    fn1(){
+     console.log('a')
+    }
   },
   created(){
     this.getcitylist()
