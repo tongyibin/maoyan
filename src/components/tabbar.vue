@@ -13,9 +13,9 @@
 <script>
 
 export default {
-  name:'tabbar',
-  props:{
-    tabs:Array
+  name: 'tabbar',
+  props: {
+    tabs: Array
   }
 }
 </script>
@@ -24,7 +24,7 @@ export default {
 @import '~@/styles/common/mixin.less';
   .tabbar{
     position: fixed;
-    bottom: 0;
+    bottom: -3px;
     width: 100%;
     display: -ms-flexbox;
     display: flex;
@@ -56,4 +56,3 @@ export default {
     }
   }
 </style>
-

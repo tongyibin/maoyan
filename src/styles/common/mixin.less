@@ -11,3 +11,16 @@
     transform: scaleY(0.5)
   }
 }
+
+.border-bottom {
+  position: relative;
+  &::before{
+    width: 100%;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    background: #ededed;
+    transform: scaleY(0.5)
+  }
+}

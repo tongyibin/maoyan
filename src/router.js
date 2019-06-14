@@ -33,7 +33,7 @@ export default new Router({
     {
       path: '/city',
       name: 'city',
-      component: () => import('./views/city/index.vue')
+      component: () => import('./views/City/index.vue')
     }
   ]
 })
