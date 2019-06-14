@@ -118,7 +118,6 @@
   }
   .city-a{
     width: 20px;
-    background: #000;
     margin-top: 10px;
     margin-left: 15px;
   }

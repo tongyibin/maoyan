@@ -1,12 +1,15 @@
 <template>
   <div class="home">
+    <keep-alive include="cinema,film">
     <router-view class="list"></router-view>
+    </keep-alive>
     <tabbar :tabs="tabs" class="tabs"></tabbar>
   </div>
 </template>
 <script>
 import tabbar from '@/components/tabbar.vue'
 export default {
+  name:'index',
   data () {
     return {
       tabs: [
