@@ -30,7 +30,6 @@ export default {
       .then(res=>{
         if(isload){
           //数据拼接
-          console.log('1')
           let newcinemalist=[...state.cinemslist,...res.data.cinemas]
           commit('setcinema',newcinemalist)
         }else{
