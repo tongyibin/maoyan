@@ -30,7 +30,7 @@ import { mapActions, mapState } from 'vuex'
 import FilmList from '@/components/FilmList.vue';
 import FilmListq from '@/components/FilmListq.vue';
 export default {
-  name: 'Film',
+  name: 'film',
   data () {
     return {
       tabAct: 0,
@@ -65,8 +65,15 @@ export default {
     this.getFilmList();
      this.getFilmList_q();
 
-    window.addEventListener('scroll', this.onScroll)
-  }
+    // window.addEventListener('scroll', this.onScroll)
+  },
+  //激活
+  activated(){
+  },
+  //失活
+  deactivated(){
+
+}
 
 }
 </script>

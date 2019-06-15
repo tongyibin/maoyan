@@ -47,7 +47,12 @@ const router = new Router({
       name:'register',
       component:()=>import('./views/login/register.vue')
     }
-  ]
+  ],
+  scrollBehavior(to, from, savePosition ){
+    
+    return {x: 0,y: 0}
+  }
+
 })
 // 全局前置守卫
 router.beforeEach((to, from, next) => {

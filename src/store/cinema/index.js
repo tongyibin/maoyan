@@ -39,7 +39,7 @@ export default {
         commit('setpagesize') //请求完成，设置pagesize++
         commit('setloading',false)//请求后
       })
-      },1000)
+      },300)
     }
   },
   getters:{

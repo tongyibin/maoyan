@@ -78,8 +78,16 @@ export default {
     window.addEventListener("scroll", this.onscroll, true);
   },
   beforeDestroy(){
-    console.log('cinema销毁')
-  }
+    // window.removeEventListener('scroll',this.onscroll,true)
+  },
+  //激活
+  activated(){
+     window.addEventListener("scroll", this.onscroll, true);
+  },
+  //失活
+  deactivated(){
+    window.removeEventListener('scroll',this.onscroll,true)
+}
 }
 </script>
 
