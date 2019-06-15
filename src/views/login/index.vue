@@ -162,7 +162,7 @@ export default {
     },
      // 获取输入的账号密码，然后与数据库的进行对比
     get() {
-      http.get('http://localhost:3000/user',{
+      http.get('http://123.206.123.152:3000/user',{
         params:{
           username:`${this.username}`,
           password:`${this.password}`

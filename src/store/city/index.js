@@ -33,7 +33,7 @@ export default {
           result[hash[py] - 1].list.push(city)
         } else {
           //如果不存在就存起来，让他下次存在
-          hash[py] = ++index
+          hash[py] = ++index 
           //构建我们需要的数据结构
           let obj = {
             py: py,
