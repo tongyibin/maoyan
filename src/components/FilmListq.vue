@@ -24,6 +24,7 @@
 <script>
 import vivi from './vivi.vue';
 export default {
+  name:"filmilsts",
   props: {
     filmType: {
       validator (value) {

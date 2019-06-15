@@ -8,16 +8,22 @@
           <i class="xiajiantou"></i>
       </div>
       </router-link>
+
       <div click="nav-center">
       <van-tabs v-model="tabAct" id="nav-sticky" title-active-color="#ef4238">
           <van-tab title="正在热映">
+            <keep-alive include="filmilst">
             <FilmList film-type="nowPlaying" :list="filmList"></FilmList>
+            </keep-alive>
           </van-tab>
           <van-tab title="即将上映">
+            <keep-alive include="filmilsts">
             <FilmListq film-type="comingSoon" :list="filmListq"></FilmListq>
+            </keep-alive>
           </van-tab>
       </van-tabs>
       </div>
+
     </div>
 
 
