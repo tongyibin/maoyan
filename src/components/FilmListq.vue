@@ -22,9 +22,9 @@
 </template>
 
 <script>
-import vivi from './vivi.vue';
+import vivi from './vivi.vue'
 export default {
-  name:"filmilsts",
+  name: 'filmilsts',
   props: {
     filmType: {
       validator (value) {
@@ -35,7 +35,7 @@ export default {
 
     list: {
       type: Array
-    },
+    }
 
   },
 

@@ -7,22 +7,20 @@
     </div>
     <!-- 输入手机号 -->
     <div class="import">
-      <div class="import-phone"><a href="#">输入手机号</a> > 输入验证码 > 设置密码</div>
+      <div class="import-phone"><a href="#">输入手机号</a> > <a href="#">输入验证码</a> > 设置密码</div>
     </div>
     <!-- 输入框 -->
     <div class="phone">
-      <input type="text" placeholder="请输入您的手机号" class="text" v-model="phone" @input="getphone">
+      <input type="text" placeholder="请输入短信中的验证码" class="text" v-model="verify">
     </div>
-    <!-- 同意 -->
+    <!-- 提交-->
     <div class="check-btn">
 
-      <div class="check">
-        <input type="checkbox" class="input" v-model="checkd">
-        我已阅读并同意
-        <a href="#">《美团网用户协议》</a>
-      </div>
-      <van-button size="large" class="btn1" @click="sendphone"  :disabled="isok">获取验证码</van-button>
+      <van-button size="large" class="btn1" @click="sendverify"  :disabled="isok">提交验证码</van-button>
     </div>
+   <van-popup v-model="show" position="top" :overlay="false" class="btn-a">
+    验证码：{{num}}
+  </van-popup>
   </div>
 </template>
 <style lang="less" scoped>
@@ -33,6 +31,15 @@
   background-color: #f8f8f8;
   height: 100%;
   overflow-x: hidden;
+
+  .btn-a{
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+        line-height: 50px;
+        height: 50px;
+        background-color: rgba(0,0,0,.8);
+  }
   //头部
   .login {
     display: flex;
@@ -132,14 +139,15 @@
 
 </style>
 <script>
-import {mapState,mapMutations} from 'vuex'
 export default {
-  name:'register',
+  name:'verify',
   data () {
     return {
       phone: '',
       isok:false,
-      checkd:false,
+      show: false,
+      verify:'',
+      num:Math.floor((Math.random()*(900000)+100000)),
       TEL_REGEXP : /^1([38]\d|5[0-35-9]|7[3678])\d{8}$/
 
     }
@@ -147,28 +155,21 @@ export default {
   methods: {
     // 返回
     onClickLeft () {
-      this.$router.push('/login')
+      this.$router.push('/register')
     },
-    // 校验输入的手机号
-    getphone () {
-
-    },
-    // 将手机号存储到仓库或者
-    sendphone () {
-      if (this.phone.trim().length<=0) {
-        this.$toast('账号不能为空')
-        return
-        }else if(!this.TEL_REGEXP.test(this.phone)){
-        this.$toast('请输入正确的手机号')
-      }else if(!this.checkd){
-          this.$toast('请阅读并同意美团用户协议')
-          return
-        }else{
-          document.cookie="phone="+this.phone+";path='/'"
-          this.$router.push('/verify')
-        }
-
+    // 输入验证码与随机验证码验证
+    sendverify () {
+      if(this.num==this.verify){
+        this.$router.push('/setpsd')
+      }
     }
+  },
+  mounted(){
+    this.show=true
+    setTimeout(()=>{
+      this.show=false
+    },4000)
+
   }
 }
 </script>

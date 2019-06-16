@@ -26,34 +26,32 @@
 
     </div>
 
-
-
   </div>
 </template>
 
 <script>
 import { mapActions, mapState } from 'vuex'
-import FilmList from '@/components/FilmList.vue';
-import FilmListq from '@/components/FilmListq.vue';
+import FilmList from '@/components/FilmList.vue'
+import FilmListq from '@/components/FilmListq.vue'
 export default {
   name: 'film',
   data () {
     return {
       tabAct: 0,
-      index:''
+      index: ''
     }
   },
   components: {
     FilmList,
-    FilmListq,
+    FilmListq
 
   },
   computed: {
-    ...mapState('film',['filmList','curFilmType','filmListq'])
+    ...mapState('film', ['filmList', 'curFilmType', 'filmListq'])
   },
 
   methods: {
-    ...mapActions('film',['getFilmList','getFilmList_q']),
+    ...mapActions('film', ['getFilmList', 'getFilmList_q'])
 
     // onScroll () {
     //   let scrollTop = document.documentElement.scrollTop;
@@ -68,18 +66,18 @@ export default {
 
   },
   created () {
-    this.getFilmList();
-     this.getFilmList_q();
+    this.getFilmList()
+    this.getFilmList_q()
 
     // window.addEventListener('scroll', this.onScroll)
   },
-  //激活
-  activated(){
+  // 激活
+  activated () {
   },
-  //失活
-  deactivated(){
+  // 失活
+  deactivated () {
 
-}
+  }
 
 }
 </script>
@@ -209,4 +207,3 @@ export default {
     }
 }
 </style>
-

@@ -7,22 +7,23 @@
     </div>
     <!-- 输入手机号 -->
     <div class="import">
-      <div class="import-phone"><a href="#">输入手机号</a> > 输入验证码 > 设置密码</div>
+      <div class="import-phone"><a href="#">输入手机号</a> > <a href="#">输入验证码</a> > <a href="#">设置密码</a></div>
     </div>
     <!-- 输入框 -->
     <div class="phone">
-      <input type="text" placeholder="请输入您的手机号" class="text" v-model="phone" @input="getphone">
+      <input type="text" placeholder="请输入您的密码" class="text" v-model="password">
+
     </div>
-    <!-- 同意 -->
+    <div class="phone">
+      <input type="text" placeholder="请重复您的输入密码" class="text" v-model="passwords">
+    </div>
+
+    <!-- 提交-->
     <div class="check-btn">
 
-      <div class="check">
-        <input type="checkbox" class="input" v-model="checkd">
-        我已阅读并同意
-        <a href="#">《美团网用户协议》</a>
-      </div>
-      <van-button size="large" class="btn1" @click="sendphone"  :disabled="isok">获取验证码</van-button>
+      <van-button size="large" class="btn1" @click="sendverify"  :disabled="isok">设置密码</van-button>
     </div>
+
   </div>
 </template>
 <style lang="less" scoped>
@@ -33,6 +34,15 @@
   background-color: #f8f8f8;
   height: 100%;
   overflow-x: hidden;
+
+  .btn-a{
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+        line-height: 50px;
+        height: 50px;
+        background-color: rgba(0,0,0,.8);
+  }
   //头部
   .login {
     display: flex;
@@ -132,43 +142,42 @@
 
 </style>
 <script>
-import {mapState,mapMutations} from 'vuex'
+import Axios from 'axios'
 export default {
-  name:'register',
+  name:'setpsd',
   data () {
     return {
-      phone: '',
       isok:false,
-      checkd:false,
-      TEL_REGEXP : /^1([38]\d|5[0-35-9]|7[3678])\d{8}$/
-
+      verify:'',
+      password:'',
+      passwords:''
     }
   },
   methods: {
     // 返回
     onClickLeft () {
-      this.$router.push('/login')
+      this.$router.push('/verify')
     },
-    // 校验输入的手机号
-    getphone () {
-
-    },
-    // 将手机号存储到仓库或者
-    sendphone () {
-      if (this.phone.trim().length<=0) {
-        this.$toast('账号不能为空')
+    //登录
+    sendverify(){
+      if(this.password !== this.passwords){
+        this.$toast('两次密码不一致，你个瓜皮，重新输入吧')
         return
-        }else if(!this.TEL_REGEXP.test(this.phone)){
-        this.$toast('请输入正确的手机号')
-      }else if(!this.checkd){
-          this.$toast('请阅读并同意美团用户协议')
-          return
-        }else{
-          document.cookie="phone="+this.phone+";path='/'"
-          this.$router.push('/verify')
-        }
+      }else {
+        //设置成功，将手机号码和密码存入数据库
+        // http://123.206.123.152:3000/user
+        var phone=document.cookie.split(';')[0].split('=')[1]
+      Axios.post('http://localhost:3000/user',  {
+          username: `${phone}`,
+          password: `${String(this.passwords)}`
+          }).then(res=>{
+          console.log(res)
+        })
 
+      }
     }
+
   }
+
 }
 </script>

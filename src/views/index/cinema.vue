@@ -39,56 +39,53 @@
   </div>
 </template>
 <script>
-import cinemalist from "@/components/cinemalist.vue";
-import { mapActions, mapState } from "vuex";
+import cinemalist from '@/components/cinemalist.vue'
+import { mapActions, mapState } from 'vuex'
 export default {
-  name: "cinema",
-  data() {
+  name: 'cinema',
+  data () {
     return {
-      information: "",
-    };
+      information: ''
+    }
   },
   components: {
     cinemalist
   },
   computed: {
-    ...mapState("cinema", ["cinemslist","loading"])
+    ...mapState('cinema', ['cinemslist', 'loading'])
   },
   methods: {
-    ...mapActions("cinema", ["getcinema"]),
-    //滚动条滚动
-    onscroll() {
-      //滚动条距离顶部的高度
-      let scrolltop=document.getElementsByClassName('cinema-d')[0].scrollTop
-      //页面的高度
-      let scrollheight=document.getElementsByClassName('cinema-l')[0].scrollHeight;
-      //可视区域的高度
-      let clientheight=document.getElementsByClassName('cinema-d')[0].clientHeight
+    ...mapActions('cinema', ['getcinema']),
+    // 滚动条滚动
+    onscroll () {
+      // 滚动条距离顶部的高度
+      let scrolltop = document.getElementsByClassName('cinema-d')[0].scrollTop
+      // 页面的高度
+      let scrollheight = document.getElementsByClassName('cinema-l')[0].scrollHeight
+      // 可视区域的高度
+      let clientheight = document.getElementsByClassName('cinema-d')[0].clientHeight
 
-      if((scrollheight-scrolltop-clientheight)<80){
-        if(!this.loading){
+      if ((scrollheight - scrolltop - clientheight) < 80) {
+        if (!this.loading) {
           this.getcinema(true)
         }
-
       }
     }
   },
-  created() {
-    this.getcinema();
-    window.addEventListener("scroll", this.onscroll, true);
+  created () {
+    this.getcinema()
+    window.addEventListener('scroll', this.onscroll, true)
   },
-  beforeDestroy(){
+  beforeDestroy () {
     // window.removeEventListener('scroll',this.onscroll,true)
   },
-  //激活
-  activated(){
-     window.addEventListener("scroll", this.onscroll, true);
+  // 激活
+  activated () {
+    window.addEventListener('scroll', this.onscroll, true)
   },
-  //失活
-  deactivated(){
-    window.removeEventListener('scroll',this.onscroll,true)
-}
+  // 失活
+  deactivated () {
+    window.removeEventListener('scroll', this.onscroll, true)
+  }
 }
 </script>
-
-

@@ -106,89 +106,87 @@ body {
 </style>
 
 <script>
-import http from "@/utils/http.js"
-import { mapState, mapMutations, mapActions } from "vuex";
+import http from '@/utils/http.js'
+import { mapState, mapMutations, mapActions } from 'vuex'
 
 export default {
-  data() {
+  data () {
     return {
-      sms:'',
-      username:'',
-      password:'',
-      isok:false
-    };
+      sms: '',
+      username: '',
+      password: '',
+      isok: false
+    }
   },
   computed: {
-    ...mapState("login", ["user","psd","code"]),
-
+    ...mapState('login', ['user', 'psd', 'code'])
 
   },
   methods: {
     // 返回
-    onClickLeft() {
-      this.$router.push("/film");
+    onClickLeft () {
+      this.$router.push('/film')
     },
-    getuser() {
-     if(this.username.length>0){
-         this.isok=false
+    getuser () {
+      if (this.username.length > 0) {
+        this.isok = false
       }
     },
-    getpsd() {
-      if(this.password.length>0){
-         this.isok=false
+    getpsd () {
+      if (this.password.length > 0) {
+        this.isok = false
       }
     },
-    //发送ajax
-    btn() {
-      if(this.username == '' ){
-         this.$toast('账号不能为空');
-         this.isok=true
-         return
-      }else if(this.password == ''){
-         this.$toast('密码不能为空');
-         this.isok=true
-         return
+    // 发送ajax
+    btn () {
+      if (this.username == '') {
+        this.$toast('账号不能为空')
+        this.isok = true
+        return
+      } else if (this.password == '') {
+        this.$toast('密码不能为空')
+        this.isok = true
+        return
       }
-       this.$store.commit({
-          type: "login/chguser",
-          user: this.username.trim()
-        })
-        this.$store.commit({
-          type: "login/chgpsd",
-          psd: this.password.trim()
-        })
-        this.get()
-
+      this.$store.commit({
+        type: 'login/chguser',
+        user: this.username.trim()
+      })
+      this.$store.commit({
+        type: 'login/chgpsd',
+        psd: this.password.trim()
+      })
+      this.get()
     },
-     // 获取输入的账号密码，然后与数据库的进行对比
-    get() {
-      http.get('http://123.206.123.152:3000/user',{
-        params:{
-          username:`${this.username}`,
-          password:`${this.password}`
-        }})
+    // 获取输入的账号密码，然后与数据库的进行对比
+    get () {
+      http.get('http://123.206.123.152:3000/user', {
+        params: {
+          username: `${this.username}`,
+          password: `${this.password}`
+        } })
         .then(res => {
-          if(res.length>0){
+          if (res.length > 0) {
             this.login()
-          }else{
-             this.$toast('账号或密码错误');
+          } else {
+            this.$toast('账号或密码错误')
           }
         })
     },
     // 登录
-    login() {
+    login () {
       setTimeout(() => {
         let userInfo = {
           user: `${this.username}`,
-          psd: `${this.password}`,
-        };
-        window.localStorage.setItem("userInfo", JSON.stringify(userInfo));
-        let redirect = this.$route.query.redirect || "/film";
-        this.$router.replace(redirect);
-      }, 1000);
+          psd: `${this.password}`
+        }
+        window.localStorage.setItem('userInfo', JSON.stringify(userInfo))
+        let redirect = this.$route.query.redirect || '/film'
+        this.$router.replace(redirect)
+      }, 1000)
       // console.log(state.log.password)
     },
-    ...mapMutations("login", ["chguser","chgpsd"])
+    ...mapMutations('login', ['chguser', 'chgpsd'])
   }
-};
+}
 </script>

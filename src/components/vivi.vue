@@ -11,7 +11,6 @@
           <p class="vivi-date">6月27日</p>
         </div>
 
-
       </div>
     </div>
   </div>
@@ -78,4 +77,3 @@ export default {
 }
 
 </style>
-

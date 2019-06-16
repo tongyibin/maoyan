@@ -9,7 +9,7 @@
 <script>
 import tabbar from '@/components/tabbar.vue'
 export default {
-  name:'index',
+  name: 'index',
   data () {
     return {
       tabs: [
@@ -44,4 +44,3 @@ html,body{
 }
 
 </style>
-

@@ -40,17 +40,26 @@ const router = new Router({
     {
       path: '/login',
       name: 'login',
-      component: () => import('./views/login/index.vue'),
+      component: () => import('./views/login/index.vue')
     },
     {
-      path:'/register',
-      name:'register',
-      component:()=>import('./views/login/register.vue')
+      path: '/register',
+      name: 'register',
+      component: () => import('./views/login/register.vue')
+    },
+    {
+      path:'/verify',
+      name:'verify',
+      component:() =>import('./views/login/verify.vue')
+    },
+    {
+      path:'/setpsd',
+      name:'setpsd',
+      component:()=>import('./views/login/setpsd.vue')
     }
   ],
-  scrollBehavior(to, from, savePosition ){
-    
-    return {x: 0,y: 0}
+  scrollBehavior (to, from, savePosition) {
+    return { x: 0, y: 0 }
   }
 
 })

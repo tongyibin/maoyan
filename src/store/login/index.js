@@ -4,15 +4,15 @@ export default {
   namespaced: true,
   state: {
     user: '',
-    psd:'',
+    psd: ''
   },
   mutations: {
     // username
-    chguser(state, payload) {
+    chguser (state, payload) {
       state.user = payload
     },
-    //password
-    chgpsd(state,payload){
+    // password
+    chgpsd (state, payload) {
       state.psd = payload
     }
 

@@ -4,6 +4,7 @@ import login from './login/index.js'
 import cinema from './cinema/index.js'
 import city from './city/index.js'
 import film from './film/index.js'
+import register from './register/index.js'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -11,6 +12,7 @@ export default new Vuex.Store({
     login,
     cinema,
     city,
-    film
+    film,
+    register
   }
 })

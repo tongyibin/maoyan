@@ -125,23 +125,22 @@
 }
 </style>
 <script>
-import {mapGetters,mapActions,mapState} from 'vuex'
+import { mapGetters, mapActions, mapState } from 'vuex'
 export default {
-  name:'city',
-  computed:{
-    ...mapGetters('city',['newcitylist']),
-    ...mapState('city',['citylist'])
+  name: 'city',
+  computed: {
+    ...mapGetters('city', ['newcitylist']),
+    ...mapState('city', ['citylist'])
   },
-  methods:{
-    ...mapActions('city',['getcitylist']),
-    fn1(){
-     console.log('a')
+  methods: {
+    ...mapActions('city', ['getcitylist']),
+    fn1 () {
+      console.log('a')
     }
   },
-  created(){
+  created () {
     this.getcitylist()
   }
 }
 
 </script>
-

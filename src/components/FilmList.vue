@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name:"filmilst",
+  name: 'filmilst',
   props: {
     filmType: {
       validator (value) {

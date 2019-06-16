@@ -42,26 +42,25 @@
       </div>
       </div>
 
-
 </template>
 <script>
 
 export default {
 
-  props:{
-    list:String,
-    //影片数据
-    lists:{
-      lists:String
+  props: {
+    list: String,
+    // 影片数据
+    lists: {
+      lists: String
     }
   },
-  methods:{
+  methods: {
     // onscroll() {
     //   let scrollTop =document.getElementsByClassName('cinema-list')[0].scrollTop
     //   console.log(scrollTop);
     // }
   },
-  created() {
+  created () {
 
     // window.addEventListener("scroll", this.onscroll, true);
   }
