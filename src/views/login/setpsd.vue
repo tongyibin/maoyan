@@ -167,11 +167,19 @@ export default {
         //设置成功，将手机号码和密码存入数据库
         // http://123.206.123.152:3000/user
         var phone=document.cookie.split(';')[0].split('=')[1]
-      Axios.post('http://localhost:3000/user',  {
+      Axios.post('http://123.206.123.152:3000/user',  {
           username: `${phone}`,
           password: `${String(this.passwords)}`
           }).then(res=>{
-          console.log(res)
+            setTimeout(() => {
+            let userInfo = {
+              user: `${phone}`,
+              psd: `${this.password}`
+            }
+            window.localStorage.setItem('userInfo', JSON.stringify(userInfo))
+            let redirect = this.$route.query.redirect || '/film'
+            this.$router.replace(redirect)
+          }, 1000)
         })
 
       }
