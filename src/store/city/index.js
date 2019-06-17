@@ -41,6 +41,7 @@ export default {
           }
           // 将构建的数据追加到result里面
           result.push(obj)
+
         }
       })
 
